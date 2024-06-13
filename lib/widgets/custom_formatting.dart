@@ -41,3 +41,15 @@ Widget customSamiBoldFont(String text) {
         fontWeight: FontWeight.w800),
   );
 }
+
+Widget customNormalFont(String text) {
+  return  Text(
+    text,
+    style: const TextStyle(
+        fontFamily: 'Roboto',
+        fontSize: 12,
+        color: AppColors.customBlackColor,
+        fontWeight: FontWeight.normal
+        ),
+  );
+}

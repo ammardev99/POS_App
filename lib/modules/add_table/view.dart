@@ -9,11 +9,12 @@ import 'package:pos/widgets/custom_profile_formfield.dart';
 
 import 'logic.dart';
 
-class AddKitchenPage extends StatelessWidget {
-  AddKitchenPage({super.key});
+class AddTablePage extends StatelessWidget {
+  AddTablePage({super.key});
 
-  final logic = Get.put(AddKitchenLogic());
-  final state = Get.find<AddKitchenLogic>().state;
+  final logic = Get.put(AddTableLogic());
+  final state = Get.find<AddTableLogic>().state;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,7 @@ class AddKitchenPage extends StatelessWidget {
           onLeadingPressed: () {
             Get.back();
           },
-          title: 'Add Kitchen'),
+          title: 'Add Table'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -33,29 +34,44 @@ class AddKitchenPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 sizeBox(10),
-// Name
-                customInputFieldLabel("Kitchen"),
+// Number
+                customInputFieldLabel("Table No"),
                 CustomProfileFormfield(
-                  helperText: "Kitchen Name Here",
-                  textInputType: TextInputType.name,
-                  textEditingController: state.kitchenNameController!,
+                  helperText: "00",
+                  textInputType: TextInputType.number,
+                  textEditingController: state.tableNoController!,
                   validator: (value) {
                     if ((value ?? "").isEmpty) {
-                      return 'kitchen name is required';
+                      return 'no is required';
                     }
                     return null;
                   },
                 ),
                 sizeBox(10),
-// Name
-                customInputFieldLabel("Printer Name"),
+// Number
+                customInputFieldLabel("Capacity"),
                 CustomProfileFormfield(
-                  helperText: "Printer Name Here",
-                  textInputType: TextInputType.name,
-                  textEditingController: state.printerNameController!,
+                  helperText: "00",
+                  textInputType: TextInputType.number,
+                  textEditingController: state.tableCapacityController!,
                   validator: (value) {
                     if ((value ?? "").isEmpty) {
-                      return 'printer name is required';
+                      return 'capacity is required';
+                    }
+                    return null;
+                  },
+                ),
+                sizeBox(10),
+
+// Name
+                customInputFieldLabel("Table Floor"),
+                CustomProfileFormfield(
+                  helperText: "Floor Name Here",
+                  textInputType: TextInputType.name,
+                  textEditingController: state.tableFloorController!,
+                  validator: (value) {
+                    if ((value ?? "").isEmpty) {
+                      return 'floor name is required';
                     }
                     return null;
                   },
@@ -63,14 +79,13 @@ class AddKitchenPage extends StatelessWidget {
                 sizeBox(10),
 // Name
                 customInputFieldLabel("Branch"),
-                customDropDown('Select Branch',state.branchController!),
-                sizeBox(10),
+                customDropDown('Select Branch',state.tableFloorController!),
                 sizeBox(10),
                 sizeBox(20),
                 CustomOrangeThemeColorButton(
                   title: "Add",
                   onTap: () {
-                    logic.addKitchen();
+                    logic.addTable();
                   },
                 ),
                 sizeBox(20),

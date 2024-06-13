@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos/utils/colors.dart';
+import 'package:pos/widgets/custom_dropdown.dart';
 import 'package:pos/widgets/custom_formatting.dart';
 import 'package:pos/widgets/custom_orange_theme_color_button.dart';
 import 'package:pos/widgets/custom_profile_formfield.dart';
@@ -23,20 +24,11 @@ Future editTableDialog() {
               textInputType: TextInputType.number,
               textEditingController: TextEditingController()),
           sizeBox(10),
-          CustomProfileFormfield(
-              helperText: "Table Status",
-              textInputType: TextInputType.name,
-              textEditingController: TextEditingController()),
+          customDropDown('Table Status', TextEditingController()),
           sizeBox(10),
-          CustomProfileFormfield(
-              helperText: "Floor",
-              textInputType: TextInputType.name,
-              textEditingController: TextEditingController()),
+          customDropDown('Floor', TextEditingController()),
           sizeBox(10),
-          CustomProfileFormfield(
-              helperText: "Branch",
-              textInputType: TextInputType.name,
-              textEditingController: TextEditingController()),
+          customDropDown('Select Branch', TextEditingController()),
         ],
       ),
       actions: [

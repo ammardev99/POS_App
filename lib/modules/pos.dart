@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos/modules/add_branch/view.dart';
 import 'package:pos/modules/add_kitchen/view.dart';
+import 'package:pos/modules/add_table/view.dart';
+import 'package:pos/modules/branch_information/view.dart';
 import 'package:pos/modules/edit_branch.dart';
 import 'package:pos/modules/edit_customer.dart';
 import 'package:pos/modules/edit_kitchen.dart';
@@ -31,13 +33,23 @@ class _POSAppState extends State<POSApp> {
               children: [
                 sizeBox(10),
                 CustomOrangeThemeColorButton(
-                  title: "Open Branch Page",
+                  title: "Add Branch",
                   onTap: () => Get.to(AddBranchPage()),
                 ),
                 sizeBox(10),
                 CustomOrangeThemeColorButton(
-                  title: "Open Kitchen Page",
+                  title: "Add Kitchen",
                   onTap: () => Get.to(AddKitchenPage()),
+                ),
+                sizeBox(10),
+                CustomOrangeThemeColorButton(
+                  title: "Add Table",
+                  onTap: () => Get.to(AddTablePage()),
+                ),
+                sizeBox(10),
+                CustomOrangeThemeColorButton(
+                  title: "Branch Information",
+                  onTap: () => Get.to(BranchInformationPage()),
                 ),
                 sizeBox(10),
                 TextButton(
